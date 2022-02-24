@@ -29,5 +29,29 @@ public class Funciones {
 	}
 	
 	// Escribe las sentencias de los apartados 1 y 2
+	
+	public static void calculaSancion(float tasaAlcohol) {
+		String sancion = "";
+		if(tasaAlcohol < 0.25) {
+			sancion = "sin sancion";
+		} else if(tasaAlcohol >= 0.25 && tasaAlcohol < 0.50) {
+			sancion = "500€ y perdida de 4 puntos del carnet";
+		} else if(tasaAlcohol >= 0.50 && tasaAlcohol < 0.60) {
+			sancion = "1000€ y perdida de 6 puntos del carnet";
+		} else if(tasaAlcohol >= 0.60) {
+			sancion = "retirada del carnet y de 3 a 6 mese de carcel";
+		}
+		System.out.printf("el conductor con tasa de alcoholemia "+ tasaAlcohol + " tiene la sancion " + sancion);
+	}
+	
+	public static void restaPuntos(int[] puntos, int[] sanciones) {
+		
+		for (int i =0; i<puntos.length; i++) {
+				puntos[i]-=sanciones[i];
+				if(puntos[i]<0) {
+					puntos[i]=0;
+				} 
+			}
+	}
 
 }
